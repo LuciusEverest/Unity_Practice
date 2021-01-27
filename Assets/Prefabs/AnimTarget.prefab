@@ -74,6 +74,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2962813397537747224, guid: 41aa22fbda475d64b860a1604b7f31c3,
         type: 3}
+      propertyPath: points
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 2962813397537747224, guid: 41aa22fbda475d64b860a1604b7f31c3,
+        type: 3}
       propertyPath: destroyGameObject
       value: 
       objectReference: {fileID: 6747708794355974993}

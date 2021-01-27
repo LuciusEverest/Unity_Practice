@@ -12,6 +12,7 @@ public class HitSpawner : MonoBehaviour
 	{
 		if (collision.gameObject.CompareTag("Projectile"))
 		{
+			Debug.Log("Hit");
 			GameObject gameObject = Instantiate(spawnGameObject, transform);
 			if (useLifetime)
 			{

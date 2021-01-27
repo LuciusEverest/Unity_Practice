@@ -74,6 +74,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2962813397537747224, guid: 41aa22fbda475d64b860a1604b7f31c3,
         type: 3}
+      propertyPath: points
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 2962813397537747224, guid: 41aa22fbda475d64b860a1604b7f31c3,
+        type: 3}
       propertyPath: material
       value: 
       objectReference: {fileID: 2100000, guid: f770de62bf8d4ef49b929912ab0bb852, type: 2}

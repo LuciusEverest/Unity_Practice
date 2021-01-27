@@ -17,7 +17,7 @@ public class Game : MonoBehaviour
 
     static Game instance = null;
 
-    float timer = 10.0f;
+    float timer = 30.0f;
 
     public enum eState
     {
@@ -43,7 +43,7 @@ public class Game : MonoBehaviour
                 gameOverScreen.SetActive(false);
                 break;
             case eState.StartGame:
-                timer = 10;
+                timer = 30;
                 Score = 0;
                 music.Play();
                 startScreen.SetActive(false);
@@ -62,7 +62,11 @@ public class Game : MonoBehaviour
             case eState.GameOver:
                 startScreen.SetActive(false);
                 gameOverScreen.SetActive(true);
-                HighScore = Score;
+                if (Score > HighScore)
+                {
+                    HighScore = Score;
+                    highScoreUI.text = string.Format("{0:D4}", HighScore);
+                }
                 break;
             default:
                 break;
