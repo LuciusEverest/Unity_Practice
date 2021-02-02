@@ -7,7 +7,7 @@ public class Weapon : MonoBehaviour
     public float fireRate = 0.1f;
 
 
-    int ammo = 100;
+    //int ammo = 100;
     float fireTimer = 0;
 
     public GameObject bullet;
