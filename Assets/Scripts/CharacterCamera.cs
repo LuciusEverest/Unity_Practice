@@ -11,7 +11,13 @@ public class CharacterCamera : MonoBehaviour
 
     void LateUpdate()
     {
-        Vector3 targetPosition = targetTransform.position + offset;
+        Vector3 targetPosition = targetTransform.position + (targetTransform.rotation * offset);
+
+        Ray ray = new Ray(targetTransform.position, (targetPosition - targetTransform.position));
+        if (Physics.Raycast(ray, out RaycastHit raycastHit))
+        {
+            targetPosition = raycastHit.point;
+        }
 
         transform.position = Vector3.Lerp(transform.position, targetPosition, rate * Time.deltaTime);
 

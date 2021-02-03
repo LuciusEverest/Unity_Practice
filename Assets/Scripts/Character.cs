@@ -15,10 +15,12 @@ public class Character : MonoBehaviour
     bool onGround = false;
     Vector3 inputDirection = Vector3.zero;
     Vector3 velocity = Vector3.zero;
+    Health health;
 
     private void Start()
     {
         characterController = GetComponent<CharacterController>();
+        health = GetComponent<Health>();
     }
 
     void Update()
@@ -46,6 +48,11 @@ public class Character : MonoBehaviour
 
         velocity.y += gravity * Time.deltaTime;
         characterController.Move(velocity * Time.deltaTime);
+
+        if (health.health <= 0)
+        {
+            animator.SetTrigger("Death");
+        }
     }
 
     public void OnJump()

@@ -17,7 +17,7 @@ public class Spawner : MonoBehaviour
 
     void Update()
     {
-        if (transform.childCount == 0 && Game.Instance.State == Game.eState.Game)
+        if (transform.childCount == 0)// && Game.Instance.State == Game.eState.Game)
         {
             spawnTimer -= Time.deltaTime;
         }

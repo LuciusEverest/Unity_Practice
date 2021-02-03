@@ -4,8 +4,16 @@ using UnityEngine;
 
 public class AnimEvents : MonoBehaviour
 {
-    public void OnFootstep()
+    AudioSource audioSource; // cache -> audio source
+
+    private void Start()
     {
-        Debug.Log("Footstep");
+        audioSource = GetComponent<AudioSource>();
+    }
+
+    public void OnFootstep(Object audioClip)
+    {
+        audioSource.clip = (AudioClip)audioClip;
+        audioSource.Play();
     }
 }
