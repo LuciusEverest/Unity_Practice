@@ -41,6 +41,8 @@ public class Character : MonoBehaviour
             transform.rotation = Quaternion.Lerp(transform.rotation, target, 5 * Time.deltaTime);
         }
         animator.SetFloat("Speed", inputDirection.magnitude);
+        animator.SetBool("OnGround", onGround);
+        animator.SetFloat("VelocityY", velocity.y);
 
         velocity.y += gravity * Time.deltaTime;
         characterController.Move(velocity * Time.deltaTime);
@@ -52,6 +54,16 @@ public class Character : MonoBehaviour
         {
             velocity.y += jump;
         }
+    }
+
+    public void OnPunch()
+    {
+        animator.SetTrigger("Punch");
+    }
+
+    public void OnThrowing()
+    {
+        animator.SetTrigger("Throwing");
     }
 
     public void OnWASD(InputValue value)
