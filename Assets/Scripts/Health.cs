@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
     public float healthMax;
-    public float health;
+    public float decay;
+    public Slider slider;
+    public float health { get; set; }
 
     void Start()
     {
@@ -14,12 +17,13 @@ public class Health : MonoBehaviour
 
     void Update()
     {
-        health -= Time.deltaTime * 5;
+        AddHealth(-Time.deltaTime * decay);
+        slider.value = health / healthMax;
     }
     
-    public void AddHealth(float health)
+    public void AddHealth(float amount)
     {
-        this.health += health;
-        this.health = Mathf.Min(this.health, healthMax);
+        health += amount;
+        health = Mathf.Clamp(health, 0, healthMax);
     }
 }

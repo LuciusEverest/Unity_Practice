@@ -49,10 +49,15 @@ public class Character : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
         characterController.Move(velocity * Time.deltaTime);
 
-        if (health.health <= 0)
+        if (health.isActiveAndEnabled && health.health <= 0)
         {
-            animator.SetTrigger("Death");
+            //animator.SetTrigger("Death");
         }
+    }
+
+    public void OnFire()
+    {
+        Debug.Log("OnFire");
     }
 
     public void OnJump()
