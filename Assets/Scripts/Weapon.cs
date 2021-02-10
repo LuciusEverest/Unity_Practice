@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    public float fireRate = 0.1f;
+    [Range(0, 3)] public float fireRate = 0.1f;
+    [Range(0, 30)] public float angle = 10.0f;
+    public int ammoMax = 100;
+    public GameObject projectile;
+    public Transform emitTransform;
 
-
-    //int ammo = 100;
-    float fireTimer = 0;
-
-    public GameObject bullet;
-
+    public float fireTimer = 0;
     void Start()
     {
         
@@ -20,13 +19,6 @@ public class Weapon : MonoBehaviour
     void Update()
     {
         fireTimer += Time.deltaTime;
-        /*if (Input.GetMouseButtonDown(0))
-        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-            GameObject gameObject = Instantiate(this.bullet, transform.position, Quaternion.identity);
-            gameObject.GetComponent<Bullet>().Fire(ray.direction);
-        }*/
     }
 
     public bool Fire(Vector3 position, Vector3 direction)
@@ -34,8 +26,22 @@ public class Weapon : MonoBehaviour
         if (fireTimer >= fireRate)
         {
             fireTimer = 0;
-            GameObject gameObject = Instantiate(this.bullet, position, Quaternion.identity);
-            gameObject.GetComponent<Bullet>().Fire(direction);
+            GameObject gameObject = Instantiate(this.projectile, position, Quaternion.identity);
+            gameObject.GetComponent<Projectile>().Fire(direction);
+
+            return true;
+        }
+
+        return false;
+    }
+
+    public bool Fire(Vector3 direction)
+    {
+        if (fireTimer >= fireRate)
+        {
+            fireTimer = 0;
+            GameObject gameObject = Instantiate(this.projectile, emitTransform.position, emitTransform.rotation);
+            gameObject.GetComponent<Projectile>().Fire(direction);
 
             return true;
         }

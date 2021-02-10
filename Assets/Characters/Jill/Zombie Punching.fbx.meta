@@ -41,8 +41,8 @@ ModelImporter:
       name: Punch
       takeName: mixamo.com
       internalID: 0
-      firstFrame: 0
-      lastFrame: 80
+      firstFrame: 20
+      lastFrame: 50
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -63,7 +63,7 @@ ModelImporter:
       curves: []
       events:
       - time: 0.56138545
-        functionName: Oncreate
+        functionName: OnCreate
         data: RightHand
         objectReferenceParameter: {fileID: 1512405525994914853, guid: 34ec466ec55dac14ebc1bd8b070954d4,
           type: 3}

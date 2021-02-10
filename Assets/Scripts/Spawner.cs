@@ -7,6 +7,7 @@ public class Spawner : MonoBehaviour
     public GameObject spawnGameObject;
     public float spawnTimeMin = 2;
     public float spawnTimeMax = 5;
+    public bool IsSpawnChild = true;
 
     float spawnTimer;
 
@@ -25,7 +26,8 @@ public class Spawner : MonoBehaviour
         if(spawnTimer <= 0)
         {
             spawnTimer = Random.Range(spawnTimeMin, spawnTimeMax);
-            Instantiate(spawnGameObject, transform.position, transform.rotation, transform);
+            Transform parent = (IsSpawnChild) ? transform : null;
+            Instantiate(spawnGameObject, transform.position, transform.rotation, parent);
         }
     }
 }

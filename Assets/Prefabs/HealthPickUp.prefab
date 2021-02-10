@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22eb2e691f751d844aaf248443ea127a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 20
+  health: 25
   spawnObject: {fileID: 5247363490160299694, guid: e29c004a9ef535646ac63a2b407d175d,
     type: 3}
 --- !u!82 &5478550709910652817

@@ -6,18 +6,18 @@ using TMPro;
 
 public class Game : MonoBehaviour
 {
-    public int Score { get; set; } = 0;
     public TextMeshProUGUI scoreUI;
-    public TextMeshProUGUI timerUI;
+    public Health healthBar;
     public GameObject startScreen;
     public AudioSource music;
+    public AudioSource siren;
     public int HighScore { get; set; } = 0;
     public TextMeshProUGUI highScoreUI;
     public GameObject gameOverScreen;
 
     static Game instance = null;
 
-    float timer = 30.0f;
+    float score = 0.0f;
 
     public enum eState
     {
@@ -43,28 +43,24 @@ public class Game : MonoBehaviour
                 gameOverScreen.SetActive(false);
                 break;
             case eState.StartGame:
-                timer = 30;
-                Score = 0;
+                score = 0;
                 music.Play();
                 startScreen.SetActive(false);
                 gameOverScreen.SetActive(false);
                 State = eState.Game;
                 break;
             case eState.Game:
-                timer -= Time.deltaTime;
-                timerUI.text = string.Format("{0:D2}", (int)timer);
-                if (timer <= 0 )
-                {
-                    music.Stop();
-                    State = eState.GameOver;
-                }
+               score += Time.deltaTime;
+               scoreUI.text = string.Format("{0:D2}", (int)score);
                 break;
             case eState.GameOver:
+                music.Stop();
+                siren.Stop();
                 startScreen.SetActive(false);
                 gameOverScreen.SetActive(true);
-                if (Score > HighScore)
+                if ((int)score > HighScore)
                 {
-                    HighScore = Score;
+                    HighScore = (int)score;
                     highScoreUI.text = string.Format("{0:D4}", HighScore);
                 }
                 break;
@@ -83,8 +79,8 @@ public class Game : MonoBehaviour
 
     public void AddPoints(int points)
     {
-        Score += points;
-        scoreUI.text = string.Format("{0:D4}", Score);
+/*        Score += points;
+        scoreUI.text = string.Format("{0:D4}", Score);*/
     }
 
     public void StartGame()

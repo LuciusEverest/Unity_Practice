@@ -10,6 +10,7 @@ public class Character : MonoBehaviour
     [Range(0, 20)] public float jump = 1;
     [Range(-20, 20)] public float gravity = -9.81f;
     public Animator animator;
+    public Weapon weapon;
 
     CharacterController characterController;
     bool onGround = false;
@@ -51,13 +52,15 @@ public class Character : MonoBehaviour
 
         if (health.isActiveAndEnabled && health.health <= 0)
         {
-            //animator.SetTrigger("Death");
+            animator.SetTrigger("Death");
+            Game.Instance.State = Game.eState.GameOver;
         }
     }
 
     public void OnFire()
     {
-        Debug.Log("OnFire");
+        weapon.Fire(transform.forward);
+        //Debug.Log("OnFire");
     }
 
     public void OnJump()
