@@ -123,6 +123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   force: 200
   damage: 10
+  isRadial: 1
 --- !u!114 &-3255268550302882480
 MonoBehaviour:
   m_ObjectHideFlags: 0

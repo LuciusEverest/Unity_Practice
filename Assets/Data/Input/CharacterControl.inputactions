@@ -14,10 +14,10 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Look",
-                    "type": "Button",
+                    "name": "Yah",
+                    "type": "Value",
                     "id": "b57c678e-6547-4a3f-8f7b-793911ad26d4",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": ""
                 },
@@ -44,6 +44,30 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Pitch",
+                    "type": "Value",
+                    "id": "21782302-c2ce-4ee8-b6ee-4f127fbe8d55",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Distance",
+                    "type": "Value",
+                    "id": "2909c512-6e34-4177-bfb1-f4d30e41f931",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Center",
+                    "type": "Button",
+                    "id": "fbf0fe85-cbc5-4632-aade-58ba1fd938c9",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -61,11 +85,11 @@
                 {
                     "name": "",
                     "id": "853006c8-8261-4228-81ea-386b31a7a6ad",
-                    "path": "<Mouse>/rightButton",
+                    "path": "<Mouse>/delta/x",
                     "interactions": "",
-                    "processors": "",
+                    "processors": "Scale(factor=0.01)",
                     "groups": "",
-                    "action": "Look",
+                    "action": "Yah",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -143,6 +167,50 @@
                     "processors": "",
                     "groups": "",
                     "action": "Throwing",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3b979d01-fe58-4338-a3cd-12254293eae9",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Throwing",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6e3d0271-ad56-462f-ad80-d0a96d8e5547",
+                    "path": "<Mouse>/delta/y",
+                    "interactions": "",
+                    "processors": "Scale(factor=0.01),Invert",
+                    "groups": "",
+                    "action": "Pitch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f00ee0c1-0738-4c60-8134-fcf6fd00b28e",
+                    "path": "<Mouse>/scroll/y",
+                    "interactions": "",
+                    "processors": "Scale(factor=0.005),Invert",
+                    "groups": "",
+                    "action": "Distance",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5006eeb7-8973-4732-b993-74fe8b531c86",
+                    "path": "<Mouse>/middleButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Center",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

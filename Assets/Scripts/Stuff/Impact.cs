@@ -7,6 +7,7 @@ public class Impact : MonoBehaviour
 {
     public float force = 10;
     public float damage = 10;
+    public bool isRadial = false;
 
     SphereCollider sphereCollider;
 
@@ -20,7 +21,14 @@ public class Impact : MonoBehaviour
         Health health = other.GetComponent<Health>();
         if (health != null)
         {
-            health.AddHealth(-damage);
+            float scale = 1;
+            if (isRadial)
+            {
+                float distance = Vector3.Distance(transform.position, other.transform.position);
+                scale = 1 - (distance / sphereCollider.radius);
+            }
+
+            health.AddHealth(-damage * scale);
         }
 
         Rigidbody rigidbody = other.GetComponent<Rigidbody>();

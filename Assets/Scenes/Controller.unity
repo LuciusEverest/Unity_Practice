@@ -7845,9 +7845,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: cd28490b9ceb1264484d8bb5e49a1262, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 912a2cefe5f0cf34cb5b554e80231d6c, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.078
+  m_Volume: 1
   m_Pitch: 0.98
   Loop: 1
   Mute: 0
@@ -10284,7 +10284,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetTransform: {fileID: 1739610614}
-  offset: {x: 0, y: 4, z: -4}
+  offset: {x: 0, y: 3, z: -4}
   rate: 5.7
 --- !u!4 &1654650623 stripped
 Transform:
